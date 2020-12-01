@@ -13,7 +13,7 @@ Students and researchers reading this book will be provided jump start in learni
 
 
 ### Table of Content:
-#### PPart I: Introduction
+#### Part I: Introduction
 * Introduction: Definitions and motivation
 
 * [Performance measures](https://github.com/Health-Devices/CARDIAC-RESPIRATORY-MONITORING/tree/master/Chapter%20Performance/)
