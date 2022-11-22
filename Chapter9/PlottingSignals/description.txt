@@ -1,0 +1,11 @@
+The multiple biomedical signal collection includes 4 signals (ECG, PPG, PCG, SCG) in 6 channels (ECG, PPG, PCG, SCG_Z, SCG_X, SCG_Y).
+
+Sampling frequency: 8008Hz (set to 8000Hz, but is 8008Hz exactly).
+
+Sensor:
+ECG: Lead I ECG, ECG electrodes on left and right wrists with left leg as active ground.
+PPG: optical PPG on left wrist
+PCG: microphone on chest
+SCG: 3-axial accelerometer, SCG (heart beats) and respiratory waveform can be mainly observed from Z axis. 
+
+Data were collected with a reference breath rate (BR) at 12bpm, 14 bpm and 16 bpm as marked in file name.
