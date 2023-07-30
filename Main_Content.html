@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2020b"><title>PERVASIVE CARDIOVASCULAR AND RESPIRATORY MONITORING DEVICES</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.S1 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.S3 { margin-bottom: 20px; padding-bottom: 4px;  }
+.S4 { margin: 0px; padding: 10px 0px 10px 5px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: bold; text-align: start;  }
+.S5 { margin: -1px 0px 0px; padding: 10px 0px 10px 7px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: start;  }
+.S6 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: bold; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0' id = 'T_0EBD435D' ><span>PERVASIVE CARDIOVASCULAR AND RESPIRATORY MONITORING DEVICES</span></h1><h1  class = 'S1' id = 'T_31308E36' ><span>Main Content</span></h1><div  class = 'S2'><span></span></div><div  class = 'S3'><div  class = 'S4'><span style=' font-weight: bold;'>Table of Contents</span></div><div  class = 'S5'><a href = "#T_0EBD435D"><span>PERVASIVE CARDIOVASCULAR AND RESPIRATORY MONITORING DEVICES
+</span></a><a href = "#T_31308E36"><span>Main Content
+</span></a><span>    </span><a href = "#H_552189FA"><span>Introduction
+</span></a><span>    </span><a href = "#H_A165CB57"><span>Chapter 1 Concepts in Performance Evaluation and Uncertainty Analysis
+</span></a><span>    </span><a href = "#H_CD605C42"><span>Chapter 2 Transducers
+</span></a><span>    </span><a href = "#H_95E0F950"><span>Chapter 3 Electronics
+</span></a><span>    </span><a href = "#H_1DCE37CB"><span>Chapter 4 Modeling and simulation of biomedical systems
+</span></a><span>    </span><a href = "#H_EC65AB15"><span>Chapter 5 Devices based on Oscillometric Signal: Blood Pressure
+</span></a><span>    </span><a href = "#H_9F201928"><span>Chapter 6 Device based on photoplethismogram and pulse oximetry
+</span></a><span>    </span><a href = "#H_3FC84BD4"><span>Chapter 7 Devices based on the ECG Signal
+</span></a><span>    </span><a href = "#H_3C64558A"><span>Chapter 8 Devices based on Time Difference between Signals: Continuous Blood Pressure Measurements
+</span></a><span>    </span><a href = "#H_035C6E40"><span>Chapter 9 Continuous monitoring of breathing
+</span></a><span>    </span><a href = "#H_49846AC5"><span>Chapter 10 Wearable devices
+</span></a><span>    </span><a href = "#H_9D407509"><span>Chapter 11 Conclusion and research directions: beyond wearable devices</span></a></div></div><div  class = 'S2'><span>Copyright (C) 2022 Miodrag Bolic</span></div><div  class = 'S2'><span>  This program is free software: you can redistribute it and/or modify   it under the terms of the GNU General Public License as published by  the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;. </span></div><div  class = 'S2'><span>This code was developed by Miodrag Bolic for the book PERVASIVE CARDIOVASCULAR AND RESPIRATORY MONITORING DEVICES</span></div><h2  class = 'S6' id = 'H_552189FA' ><span>Introduction</span></h2><div  class = 'S2'><span>This is the main Matlab Live Editor file. It contain links to all other live editor files used in this book.</span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_A165CB57' ><span>Chapter 1 Concepts in Performance Evaluation and Uncertainty Analysis</span></h2><div  class = 'S2'><span>This chapter presents steps needed to evaluate performance and quantify  uncertainty in biomedical monitoring devices. The performance metrics  are considered for cases when true reference values are known. We also  consider more common situations in biomedical instrumentation where the  true reference values are unknown. In this case, we show how one can  calculate the agreement between the results obtained from two devices.  Uncertainty quantification is of utmost importance during measurements  since the result of any measurement contains the error, and the exact  value of the error cannot be computed without having the true reference  value. Uncertainties in measurements are modeled and calculated based on the probability theory. Therefore, we introduce the concept of  confidence intervals and uncertainty propagation. Sensitivity analysis  allows for selecting parameters whose variations affect the output the  most. Even though we present basic mathematical analysis, we focus on  computational methods and simulation. </span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Probability</span></div><div  class = 'S2'><span>    </span><a href = "Chapter1/CLT/CLT_CI.html"><span>Central Limit Theorem and confidence intervals</span></a><span>, Example 1.1, Fig. 1.1-1.2</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Sensor model, accuracy and agreement</span></div><div  class = 'S2'><span>    </span><a href = "Chapter1/SensorModel/accuracy.html"><span>Sensor model, evaluating accuracy and non_linearities</span></a><span>, Example 1.2, Fig. 1.3-1.6</span></div><div  class = 'S2'><span>    </span><a href = "Chapter1/BlandAltman/CreatingABlandAltmanPlot.html"><span>Bland Altman plot</span></a><span>, Example 1.3, Fig. 1.7</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Uncertainty propagation</span></div><div  class = 'S2'><span>    </span><a href = "Chapter1/Uncertainty/UncertaintyPropagation.html"><span>Uncertainty propagation of correlated variables and GUM</span></a><span>, Example 1.4, Example 1.5</span></div><div  class = 'S2'><span>    </span><a href = "Chapter1/Uncertainty/Uncertainty_diff_ampl1.html"><span>Uncertainty propagation in a differential amplifier</span></a><span>, Example 1.6a, Fig. 1.10, 1.11</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Sensitivity analysis</span></div><div  class = 'S2'><span>    </span><a href = "Chapter1/Sensitivity/Sens_analysis.html"><span>Sensitivity analysis of a differential amplifier,</span></a><span> Example 1.6b, Fig. 1.12</span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_CD605C42' ><span>Chapter 2 Transducers</span></h2><div  class = 'S2'><span>In this chapter we introduce transducers that are commonly used in biomedical devices. The students will learn basic  operations of these transducers and how to model them using circuit  models. Models that are developed in this chapter will be used in later  chapters as one of the components of biomedical devices. </span></div><div  class = 'S2'><span>Transducers</span></div><div  class = 'S2'><span>    </span><a href = "Chapter2/Piezoelectric/PiezoelectricSensor1.html"><span>Piezoelectric transducer</span></a><span>, Fig. 2.2 and 2.3</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Optical sensors</span></div><div  class = 'S2'><span>    </span><a href = "Chapter2/LED_Photodetector/LED_Photodetector.html"><span>Models of LEDs and photodetectors</span></a><span>, Fig. 2.4-2.7</span></div><div  class = 'S2'><span>    </span><a href = "Chapter2/LED_Photodetector/Photodetector.html"><span>More complex photodetector model</span></a><span> (modification is needed), Fig. 2.15, Problem 2.15</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Electrodes</span></div><div  class = 'S2'><span>    </span><a href = "Chapter2/Electrodes/Electrodes1.html"><span>Electrodes</span></a><span>, Fig. 2.10-2.14</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_95E0F950' ><span>Chapter 3 Electronics</span></h2><div  class = 'S2'><span>This chapter describes  electronic components used in biomedical devices, including operational  amplifiers, filters, analog to digital and digital to analog converters, and others. The goal is for readers to understand how to connect  transducers with digital systems using conditioning or interfacing  circuits. In addition, we will explain </span><span>the effect of filtering  and aliasing on the signal. We will also simulate different components  and understand performance metrics and errors in these components. New  developments in the field, including state-of-the-art integrated  solutions that include many analog components in a single chip, will  also be presented. </span></div><div  class = 'S2'><span>Electronics</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/Bridges/Bridges.html"><span>Bridges</span></a><span>, Fig. 3.1a, 3.7-3.9</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/Amplifier configurations/AmplifierConfigurations.html"><span>Op amp model and basic configurations</span></a><span>: inverting, noninverting amplifiers, differentiator, Fig. 3.2, 3.3, 3.29</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/Amplifiers/Amplifiers.html"><span>Amplifiers</span></a><span> Fig. 3.4 -3.6, 3.10- 3.15</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Filters</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/RC Circuit and Filters/FirstOrderSystem.html"><span>RC Low pass filter</span></a><span>, Fig. 3.16, 3.17</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/RC Circuit and Filters/SallenKeyFilter1.html"><span>Second order active filter</span></a><span>, Fig. 3.18, 3.19</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>ADCs</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/ADC/Antialiasing.html"><span>Antialiasing</span></a><span>, Fig. 3.20, 3.21, 3.22, Example 3.3, 3.4</span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/ADC/ADC.html"><span>Analog to digital converters</span></a><span> Fig. 3.23, 3. 25, 3.26, 3.22 is extracted from ADCTestSim1.slx, Example 3.5, 3.6, Table 3.4</span></div><div  class = 'S2'><span> </span></div><div  class = 'S2'><span>Signal generation   </span></div><div  class = 'S2'><span>    </span><a href = "Chapter3/Generating Signals/pwm.html"><span>Generating signals</span></a><span>, Fig. 3.29</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_1DCE37CB' ><span>Chapter 4 Modeling and simulation of biomedical systems</span></h2><div  class = 'S2'><span> </span></div><div  class = 'S2'><span>In this chapter, we describe the principles of modeling biomedical systems as well as propagating the uncertainty through the system and  performing sensitivity analysis. The objective is to put together  components and techniques studied in Chapters 2-4 in the context of  modeling a biomedical device. We describe models that allow us to  generate data, add noise and interference, include tolerance of the  electronic components, and so on. In addition, we consider systems that  are modeled using mathematical models as well as using electrical  circuits and show how one can propagate uncertainties through both  models. We show how one can develop an end-to-end model that includes  different sub-models presented before and where processing is done in  software or analog hardware. In the end, we briefly discuss the power  consumption in the system. </span></div><div  class = 'S2'><span>Data collection and databases </span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/Maneuvers/plotting_from_pneuma.html"><span>Databases</span></a><span>, Fig. 4.2</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Models for signal generation</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/Windkessel/WK2.html"><span>Example: Windkessel model</span></a><span>, Fig. 4.3-4.5</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Modeling noise and assessing signal quality</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/Noise Generation/generating_noise.html"><span>Noise, </span></a><span>Fig. 4.6-4.9</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/Signal Quality/SQI_notebook.html"><span>Signal quality</span></a><span> Fig. 4.10 - 4.12, Table 4.3</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Uncertainty propagation in systems</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/ChargeAmplifierUncertainty/ChargeAmpl_Uncertainty.html"><span>Example: Charge amplifier</span></a><span>, Fig. 4.13 </span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Modeling software and Real-time signal processing</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/BlockProcessing.html"><span>Block processing</span></a><span>, Fig. 4.14</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/BreathingAlarm/BreathingRateCircuits.html"><span>Example: stop-breathing detection system </span></a><span>Fig. 4.15-4.19</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Modeling power consumption</span></div><div  class = 'S2'><span>    </span><a href = "Chapter4/PowerEstimation/evaluate_power_adc.html"><span>A/D converter example</span></a><span>, Fig 4.20</span></div><div  class = 'S2'><span> </span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_EC65AB15' ><span>Chapter 5 Devices based on Oscillometric Signal: Blood Pressure </span></h2><div  class = 'S2'><span>This chapter describes the  principles of operations of oscillometric blood pressure devices. Issues in measuring blood pressure and the overview of recommendations and  standards related to blood pressure are presented. Oscillometric  algorithms and circuits are described and simulated. More advanced  topics include a model of the artery and cuff to simulate the generation of the oscillometric signal, a model of the overall blood pressure  system, and performance analysis. We also present recent advancements in the field and discuss research problems related to oscillometry. Also,  the use of oscillometry in assessing arterial stiffness is briefly  discussed.</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>What is measured using a blood pressure device </span></div><div  class = 'S2'><span>    </span><a href = "Chapter5/Blood_pressure_signals/plot_BP_signals.html"><span>Plot BP signals</span></a><span>, Fig 5.1, 5.3, 5.4, 5.17</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Modeling the signal</span></div><div  class = 'S2'><span>    </span><a href = "Chapter5/Babbs_Model/BloodPressureLiveEditor.html"><span>Oscillometric model</span></a><span>, Fig 5.4, 5.5, 5.6, 5.7, 5.9, 5.13, Table 5.3</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Sensors and circuits</span></div><div  class = 'S2'><span>    </span><a href = "Chapter5/Oscillometric_Circuit/BloodPressureCircuitLiveEditor.html"><span>Oscillometric circuit</span></a><span>, Fig 5.11, Table 5.5</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_9F201928' ><span>Chapter 6 Device based on photoplethismogram and pulse oximetry</span></h2><div  class = 'S2'><span>In this chapter, we describe operation behind photoplethysmography (PPG) and pulse oximetry devices. These devices are mainly used for estimating heart rate and oxygen saturation level noninvasively. We start with explaining what is measured with PPG and pulse oximetry and what the issues are in the measurements. We present PPG and pulse oximetry systems, sensors, circuits and algorithms. More advanced topics that are covered include: propagation of the light through the skin and modeling the complete system that includes models of tissue and the propagation of light through the skin as well as the sensor and the circuit. In the end of the chapter, we explain how one can use PPG signal to estimate blood pressure as well as to estimate the shape of the jugular vein pulse. New developments in the field including miniaturization of the systems, modeling approaches and advanced algorithms are presented too.</span></div><div  class = 'S2'><span>Introduction, Optical properties of tissues		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter6/PlotPPG/PlotPPG.html"><span>Plotting PPG signal and absorption coefficients</span></a><span>, Fig. 6.1b, 6.4, 6.6</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Performance measures	</span></div><div  class = 'S2'><span>    </span><a href = "Chapter6/SimulatingLightPropagation/SimulatingLightPropagation.html"><span>Simulating propagation of light through the tissue</span></a><span>,  Fig. 6.3, 6.7-6.10</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Design of a PPG device	</span></div><div  class = 'S2'><span>    </span><a href = "Chapter6/LED/FigLEDControl.html"><span>LED driving circuit</span></a><span>, Fig. 6.11, 6.12</span></div><div  class = 'S2'><span>    </span><a href = "Chapter6/PPG/Transimpedance1.html"><span>Transimpedance amplifier</span></a><span>, Fig. 6.13, 6.14</span></div><div  class = 'S2'><span>    </span><a href = "Chapter7/PulseAnalyze/AnalyzingPulses.html"><span>Algorithms</span></a><span>, Fig. 6.17, 6.20, 6.21</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Putting it all together			</span></div><div  class = 'S2'><span>    </span><a href = "Chapter6/PPG/PPG_Whole_m.html"><span>Modelling tissue, circuit and analysing pulses</span></a><span>, Fig. 6.15, 6.16	</span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_3FC84BD4' ><span>Chapter 7 </span><span style=' font-weight: bold;'>Devices based on the ECG Signal</span></h2><div  class = 'S2'><span>In this chapter we discuss issues related with acquisition and processing of electrocardiogram (ECG) signal. ECG signal is related to the electrical activity of the heart and therefore it is measured using electrodes. When measuring ECG signal, we first need to know where to place and how to connect the electrodes – this is described in the part of the chapter that talks about the ECG leads. In pervasive computing, mainly two to three electrodes are used representing single lead ECG configuration. We briefly introduce how the ECG signal can be generated using simulators, sources of noise and artifacts and how to measure the quality of the signals. ECG device types and standards are introduced next. To develop electronics for ECG, we need to know what standards/regulations need to be followed as well as what kind of processing will be performed. Therefore, next we will introduce algorithms for heart rate estimation and beat segmentation. The next section is about ECG electronics followed by the current solutions and research direction. In the end, we discuss how ECG signal can be further processed to extract heart rate variability.</span></div><div  class = 'S2'><span>	</span></div><div  class = 'S2'><span>Signal properties, simulators and databases</span><span>	</span><span>		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter7/Simulator/ECGSimulation.html"><span>Simulators</span></a><span>, Fig. 7.4</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Processing ECG signal			</span></div><div  class = 'S2'><span>    </span><a href = "Chapter7/ECG Processing/ECGProcessing_notebook.html"><span>Heart rate estimation and segmentation of the ECG signal</span></a><span>, Fig. 7.7</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Simulation of a single lead ECG system  		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter7/ECGFrontEnd/Electrodes.html"><span>Simulation, front-end circuits, interference in ECG circuits</span></a><span>, Fig. 7.9-7.16</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Current trends and research directions	</span></div><div  class = 'S2'><span>    </span><a href = "Chapter7/HRV/github_repo/HRVTool"><span>Heart rate variability</span></a><span>, Fig. 7.18</span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_3C64558A' ><span>Chapter 8 </span><span style=' font-weight: bold;'>Devices based on Time Difference between Signals: Continuous Blood Pressure Measurements</span></h2><div  class = 'S2'><span>In this chapter, we will show ways of combining different signals by looking mainly at time difference between characteristic points on the pulses from these signals obtained during the same cardiac cycle. It has been shown that time delay between the signals called pulse transit time is proportional to blood pressure and therefore it is a basis for continuous blood pressure devices. This chapter is different from the others in a way that the relationship between the temporal features and the parameter of interest is given through a mathematical model and therefore the most important part when developing the device for continuous blood pressure is the model that relates the parameters and the pressure. Therefore, we will focus more on modeling and less on instrumentation in this chapter. In addition, we will discuss arterial stiffness and oscillometric blood pressure devices based on time differences between signals.</span></div><div  class = 'S2'><span>	</span></div><div  class = 'S2'><span>Temporal relationship between physiological signals	</span><span>		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter8/PlottingSignals/reading_signals.html"><span>PTT and PAT surrogates</span></a><span>, Fig. 9.2, 9.3</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Modelling the relationship between PTT and blood pressure			</span></div><div  class = 'S2'><span>    </span><a href = "Chapter/PlottingSignals/Moens.html"><span>Moens-Korteweg equation, </span></a><span>Example 8.1  		</span></div><div  class = 'S2'><span>	</span></div><div  class = 'S2'><span>Cuffless blood pressure monitoring	</span><span>		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter8/PATUncertainty/PAT_uncertainty_propagation.html"><span>Model-based blood pressure estimation</span></a><span>, Fig. 8.6</span></div><div  class = 'S2'><span>	</span></div><div  class = 'S2'><span>	</span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_035C6E40' ><span>Chapter 9 </span><span style=' font-weight: bold;'>Continuous monitoring of breathing </span></h2><div  class = 'S2'><span>In this chapter, we describe operation of devices for acquiring breathing signal and then estimating breathing rate. We introduce devices that can extract breathing signal from cardiac signals such as ECG and PPG as well as devices that obtain breathing signal based on movements of the chest wall of by measuring temperature or pressure changes during inhalation and exhalation. In addition, we show some developments of wearable devices for tidal volume and airflow measurements as well as systems for classifying breathing patterns.</span></div><div  class = 'S2'><span>What is measured?</span><span>	</span><span>		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter9/Plotting_Pneuma_and_Shafiq/PlottingSignals.html"><span>Volume and flow</span></a><span>, Fig. 9.1, 9.2, 9.15</span></div><div  class = 'S2'><span>    	</span></div><div  class = 'S2'><span>Features of the signal and the noise</span><span>	</span><span>		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter9/Signal Quality/SQI_notebook.html"><span>Signal quality</span></a><span>, Fig. 9.3, 9.4</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span>Breathing rate estimation	</span><span>		</span></div><div  class = 'S2'><span>	</span><a href = "Chapter9/BrRateEst/Br_rate.html"><span>Breathing rate estimation algorithms</span></a><span>, Fig. 9.5		</span></div><div  class = 'S2'><span>	</span><a href = "Chapter9/RespRatefromECG/BreathingRateFromECG.html"><span>Extracting breathing rate from cardiac signals</span></a><span>, Fig. 9.6, 9.7		</span></div><div  class = 'S2'><span>	Chest wall movement		</span><span>			</span></div><div  class = 'S2'><span>		</span><a href = "Chapter9/Accelerometer/accel_breathing.m"><span>Accelerometers</span></a><span>, Fig. 9.9			</span></div><div  class = 'S2'><span>		</span><a href = "Chapter9/Bioimpedance/Bioimpedance1.html"><span>Impedance changes</span></a><span>, Fig. 9.12, 9.13</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_49846AC5' ><span>Chapter 10 Wearable devices</span></h2><div  class = 'S2'><span>Wearable devices are becoming pervasive. They can sense vital signs for hours and days. They come in different shapes and forms and can measure several quantities of interest and estimate multiple indices. Some issues related to the design of wearable devices are discussed in this chapter, such as power consumption. We showed several examples of how power consumption can be estimated. We also introduce different classifications of wearable devices. Sensors and sensing modalities currently used in wearable devices were mainly covered in previous chapters. In this chapter, we introduce three biomedical signals: seismocardiogram, arterial tonometry signal, and phonocardiogram. Examples of commercial and research-based wearable devices are shown at the end of the chapter.</span></div><div  class = 'S2'><span>Sensors and sensing modality</span><span>	</span><span>			</span></div><div  class = 'S2'><span>    </span><a href = "Chapter10/ReadSCG/reading_signals.html"><span>Seismocardiogram</span></a><span>, Fig. 10.3		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter10/PCG/PCG.html"><span>Phonocardiogram</span></a><span>, Fig. 10.4</span></div><div  class = 'S2'><span>Designing for low-power	</span><span>		</span></div><div  class = 'S2'><span>    </span><a href = "Chapter10/PowerEstimation/evaluate_power.html"><span>Modeling power consumption of the overall system</span></a><span>, Fig. 10.9-10.11</span></div><div  class = 'S2'><span></span></div><div  class = 'S2'><span style=' font-weight: bold;'>--------------------------------------------------------------------------------------</span></div><h2  class = 'S6' id = 'H_9D407509' ><span>Chapter 11 Conclusion and research directions: beyond wearable devices</span></h2><div  class = 'S2'><span>The goal of this chapter is to review topics covered in the book, point out new directions and challenges, and present alternative approaches to continuous monitoring of patients. We discuss approaches where the patient is not required to wear any devices. Instead, the sensors are integrated into the objects that patients use, such as a chair or a bed. In addition, we discuss long-range contactless monitoring where sensors, such as radars and cameras,  are integrated into the environment where patients live.  </span></div><div  class = 'S2'><span>Beyond wearables: contactless monitoring</span></div><div  class = 'S2'><span>    </span><a href = "Chapter11/Cameras/read_camera_signals.html"><span>Cameras</span></a><span>, Fig. 11.4</span></div><div  class = 'S2'><span>    </span><a href = "Chapter11/Radar/reading_radar_data.html"><span>Radars</span></a><span>, Fig. 11.6</span></div><div  class = 'S2'></div></div>
+<br>
+<!--
+##### SOURCE BEGIN #####
+%% PERVASIVE CARDIOVASCULAR AND RESPIRATORY MONITORING DEVICES
+%% Main Content
+%
+%%
+% Copyright (C) 2022 Miodrag Bolic
+%
+% This program is free software: you can redistribute it and/or modify   it
+% under the terms of the GNU General Public License as published by  the Free
+% Software Foundation, either version 3 of the License, or  (at your option) any
+% later version.  This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+% or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+% more details <https://www.gnu.org/licenses/>.
+%
+% This code was developed by Miodrag Bolic for the book PERVASIVE CARDIOVASCULAR
+% AND RESPIRATORY MONITORING DEVICES
+%% Introduction
+% This is the main Matlab Live Editor file. It contain links to all other live
+% editor files used in this book.
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 1 Concepts in Performance Evaluation and Uncertainty Analysis
+% This chapter presents steps needed to evaluate performance and quantify  uncertainty
+% in biomedical monitoring devices. The performance metrics  are considered for
+% cases when true reference values are known. We also  consider more common situations
+% in biomedical instrumentation where the  true reference values are unknown.
+% In this case, we show how one can  calculate the agreement between the results
+% obtained from two devices.  Uncertainty quantification is of utmost importance
+% during measurements  since the result of any measurement contains the error,
+% and the exact  value of the error cannot be computed without having the true
+% reference  value. Uncertainties in measurements are modeled and calculated based
+% on the probability theory. Therefore, we introduce the concept of  confidence
+% intervals and uncertainty propagation. Sensitivity analysis  allows for selecting
+% parameters whose variations affect the output the  most. Even though we present
+% basic mathematical analysis, we focus on  computational methods and simulation.
+%
+%
+%
+% Probability
+% <a href="Chapter1/CLT/CLT_CI.html">Central Limit Theorem and confidence
+% intervals</a> Example 1.1, Fig. 1.1-1.2
+%
+%
+%
+% Sensor model, accuracy and agreement
+%
+% <a href="Chapter1/SensorModel/accuracy.html">Sensor model, evaluating
+% accuracy and non_linearities</a</a>,Example 1.2, Fig. 1.3-1.6
+%
+% <a href="Chapter1/BlandAltman/CreatingABlandAltmanPlot.html">Bland Altman
+% plot</a>,Example 1.3, Fig. 1.7
+%
+%
+%
+% Uncertainty propagation
+%
+% <a href="Chapter1/Uncertainty/UncertaintyPropagation.html">Uncertainty
+% propagation of correlated variables and GUM</a>, Example 1.4, Example 1.5
+%
+% <a href="Chapter1/Uncertainty/Uncertainty_diff_ampl1.html">Uncertainty
+% propagation in a differential amplifier</a>, Example 1.6a, Fig. 1.10, 1.11
+%
+%
+%
+% Sensitivity analysis
+%
+% <a href="Chapter1/Sensitivity/Sens_analysis.html">Sensitivity analysis
+% of a differential amplifier,> Example 1.6b, Fig. 1.12
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 2 Transducers
+% In this chapter we introduce transducers that are commonly used in biomedical
+% devices. The students will learn basic  operations of these transducers and
+% how to model them using circuit  models. Models that are developed in this chapter
+% will be used in later  chapters as one of the components of biomedical devices.
+%
+% Transducers
+%
+% <a href="Chapter2/Piezoelectric/PiezoelectricSensor1.html">Piezoelectric
+% transducer</a>, Fig. 2.2 and 2.3
+%
+%
+%
+% Optical sensors
+%
+% <a href="Chapter2/LED_Photodetector/LED_Photodetector.html">Models of
+% LEDs and photodetectors</a>, Fig. 2.4-2.7
+%
+% <a href="Chapter2/LED_Photodetector/Photodetector.html">More complex
+% photodetector model> (modification is needed), Fig. 2.15, Problem 2.15
+%
+%
+%
+% Electrodes
+%
+% <a href="Chapter2/Electrodes/Electrodes1.html">Electrodes</a>, Fig. 2.10-2.14
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 3 Electronics
+% This chapter describes  electronic components used in biomedical devices,
+% including operational  amplifiers, filters, analog to digital and digital to
+% analog converters, and others. The goal is for readers to understand how to
+% connect  transducers with digital systems using conditioning or interfacing
+% circuits. In addition, we will explain the effect of filtering  and aliasing
+% on the signal. We will also simulate different components  and understand performance
+% metrics and errors in these components. New  developments in the field, including
+% state-of-the-art integrated  solutions that include many analog components in
+% a single chip, will  also be presented.
+%
+% Electronics
+%
+% <a href="Chapter3/Bridges/Bridges.html">Bridges</a>, Fig. 3.1a, 3.7-3.9
+%
+% <a href="Chapter3/Amplifier configurations/AmplifierConfigurations.html">
+% Op amp model and basic configurations>: inverting, noninverting amplifiers,
+% differentiator, Fig. 3.2, 3.3, 3.29
+%
+% <a href="Chapter3/Amplifiers/Amplifiers.html">Amplifiers> Fig. 3.4 -3.6,
+% 3.10- 3.15
+%
+%
+%
+% Filters
+%
+% <a href="Chapter3/RC Circuit and Filters/FirstOrderSystem.html">RC Low
+% pass filter</a>, Fig. 3.16, 3.17
+%
+% <a href="Chapter3/RC Circuit and Filters/SallenKeyFilter1.html">Second
+% order active filter</a>, Fig. 3.18, 3.19
+%
+%
+%
+% ADCs
+%
+% <a href="Chapter3/ADC/Antialiasing.html">Antialiasing</a>, Fig. 3.20, 3.21,
+% 3.22, Example 3.3, 3.4
+%
+% <a href="Chapter3/ADC/ADC.html">Analog to digital converters> Fig. 3.23,
+% 3. 25, 3.26, 3.22 is extracted from ADCTestSim1.slx, Example 3.5, 3.6, Table
+% 3.4
+%
+%
+%
+% Signal generation
+%
+% <a href="Chapter3/Generating Signals/pwm.html">Generating signals</a>, Fig.
+% 3.29
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 4 Modeling and simulation of biomedical systems
+%
+%
+% In this chapter, we describe the principles of modeling biomedical systems
+% as well as propagating the uncertainty through the system and  performing sensitivity
+% analysis. The objective is to put together  components and techniques studied
+% in Chapters 2-4 in the context of  modeling a biomedical device. We describe
+% models that allow us to  generate data, add noise and interference, include
+% tolerance of the  electronic components, and so on. In addition, we consider
+% systems that  are modeled using mathematical models as well as using electrical
+% circuits and show how one can propagate uncertainties through both  models.
+% We show how one can develop an end-to-end model that includes  different sub-models
+% presented before and where processing is done in  software or analog hardware.
+% In the end, we briefly discuss the power  consumption in the system.
+%
+% Data collection and databases
+%
+% <a href="Chapter4/Maneuvers/plotting_from_pneuma.html">Databases</a>, Fig.
+% 4.2
+%
+%
+%
+% Models for signal generation
+%
+% <a href="Chapter4/Windkessel/WK2.html">Example: Windkessel model</a>, Fig.
+% 4.3-4.5
+%
+%
+%
+% Modeling noise and assessing signal quality
+%
+% <a href="Chapter4/Noise Generation/generating_noise.html">Noise, >Fig.
+% 4.6-4.9
+%
+% <a href="Chapter4/Signal Quality/SQI_notebook.html">Signal quality> Fig.
+% 4.10 - 4.12, Table 4.3
+%
+%
+%
+% Uncertainty propagation in systems
+%
+% <a href="Chapter4/ChargeAmplifierUncertainty/ChargeAmpl_Uncertainty.html">
+% Example: Charge amplifier</a>, Fig. 4.13
+%
+%
+%
+% Modeling software and Real-time signal processing
+%
+% <a href="Chapter4/BlockProcessing.html">Block processing</a>, Fig. 4.14
+%
+% <a href="Chapter4/BreathingAlarm/BreathingRateCircuits.html">Example:
+% stop-breathing detection system >Fig. 4.15-4.19
+%
+%
+%
+% Modeling power consumption
+%
+% <a href="Chapter4/PowerEstimation/evaluate_power_adc.html">A/D converter
+% example</a>, Fig 4.20
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 5 Devices based on Oscillometric Signal: Blood Pressure
+% This chapter describes the  principles of operations of oscillometric blood
+% pressure devices. Issues in measuring blood pressure and the overview of recommendations
+% and  standards related to blood pressure are presented. Oscillometric  algorithms
+% and circuits are described and simulated. More advanced  topics include a model
+% of the artery and cuff to simulate the generation of the oscillometric signal,
+% a model of the overall blood pressure  system, and performance analysis. We
+% also present recent advancements in the field and discuss research problems
+% related to oscillometry. Also,  the use of oscillometry in assessing arterial
+% stiffness is briefly  discussed.
+%
+%
+%
+% What is measured using a blood pressure device
+%
+% <a href="Chapter5/Blood_pressure_signals/plot_BP_signals.html">Plot BP
+% signals</a>, Fig 5.1, 5.3, 5.4, 5.17
+%
+%
+%
+% Modeling the signal
+%
+% <a href="Chapter5/Babbs_Model/BloodPressureLiveEditor.html">Oscillometric
+% model</a>, Fig 5.4, 5.5, 5.6, 5.7, 5.9, 5.13, Table 5.3
+%
+%
+%
+% Sensors and circuits
+%
+% <a href="Chapter5/Oscillometric_Circuit/BloodPressureCircuitLiveEditor.html">
+% Oscillometric circuit</a>, Fig 5.11, Table 5.5
+%
+%
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 6 Device based on photoplethismogram and pulse oximetry
+% In this chapter, we describe operation behind photoplethysmography (PPG) and
+% pulse oximetry devices. These devices are mainly used for estimating heart rate
+% and oxygen saturation level noninvasively. We start with explaining what is
+% measured with PPG and pulse oximetry and what the issues are in the measurements.
+% We present PPG and pulse oximetry systems, sensors, circuits and algorithms.
+% More advanced topics that are covered include: propagation of the light through
+% the skin and modeling the complete system that includes models of tissue and
+% the propagation of light through the skin as well as the sensor and the circuit.
+% In the end of the chapter, we explain how one can use PPG signal to estimate
+% blood pressure as well as to estimate the shape of the jugular vein pulse. New
+% developments in the field including miniaturization of the systems, modeling
+% approaches and advanced algorithms are presented too.
+%
+% Introduction, Optical properties of tissues
+%
+% <a href="Chapter6/PlotPPG/PlotPPG.html">Plotting PPG signal and absorption
+% coefficients</a>, Fig. 6.1b, 6.4, 6.6
+%
+%
+%
+% Performance measures
+%
+% <a href="Chapter6/SimulatingLightPropagation/SimulatingLightPropagation.html">
+% Simulating propagation of light through the tissue</a>,  Fig. 6.3, 6.7-6.10
+%
+%
+%
+% Design of a PPG device
+%
+% <a href="Chapter6/LED/FigLEDControl.html">LED driving circuit</a>, Fig.
+% 6.11, 6.12
+%
+% <a href="Chapter6/PPG/Transimpedance1.html">Transimpedance amplifier</a>,
+% Fig. 6.13, 6.14
+%
+% <a href="Chapter6/PulseAnalyze/AnalyzingPulses.html">Algorithms</a>, Fig.
+% 6.17, 6.20, 6.21
+%
+%
+%
+% Putting it all together
+%
+% <a href="Chapter6/PPG/PPG_Whole_m.html">Modelling tissue, circuit and
+% analysing pulses</a>, Fig. 6.15, 6.16
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 7 *Devices based on the ECG Signal*
+% In this chapter we discuss issues related with acquisition and processing
+% of electrocardiogram (ECG) signal. ECG signal is related to the electrical activity
+% of the heart and therefore it is measured using electrodes. When measuring ECG
+% signal, we first need to know where to place and how to connect the electrodes
+% – this is described in the part of the chapter that talks about the ECG leads.
+% In pervasive computing, mainly two to three electrodes are used representing
+% single lead ECG configuration. We briefly introduce how the ECG signal can be
+% generated using simulators, sources of noise and artifacts and how to measure
+% the quality of the signals. ECG device types and standards are introduced next.
+% To develop electronics for ECG, we need to know what standards/regulations need
+% to be followed as well as what kind of processing will be performed. Therefore,
+% next we will introduce algorithms for heart rate estimation and beat segmentation.
+% The next section is about ECG electronics followed by the current solutions
+% and research direction. In the end, we discuss how ECG signal can be further
+% processed to extract heart rate variability.
+%
+%
+%
+% Signal properties, simulators and databases
+%
+% <a href="Chapter7/Simulator/ECGSimulation.html">Simulators</a>, Fig. 7.4
+%
+%
+%
+% Processing ECG signal
+%
+% <a href="Chapter7/ECG Processing/ECGProcessing_notebook.html">Heart rate
+% estimation and segmentation of the ECG signal</a>, Fig. 7.7
+%
+%
+%
+% Simulation of a single lead ECG system
+%
+% <a href="Chapter7/ECGFrontEnd/Electrodes.html">Simulation, front-end
+% circuits, interference in ECG circuits</a>, Fig. 7.9-7.16
+%
+%
+%
+% Current trends and research directions
+%
+% <a href="Chapter7/HRV/github_repo/HRVTool') Heart rate variability</a>,
+% Fig. 7.18
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 8 *Devices based on Time Difference between Signals: Continuous Blood Pressure Measurements*
+% In this chapter, we will show ways of combining different signals by looking
+% mainly at time difference between characteristic points on the pulses from these
+% signals obtained during the same cardiac cycle. It has been shown that time
+% delay between the signals called pulse transit time is proportional to blood
+% pressure and therefore it is a basis for continuous blood pressure devices.
+% This chapter is different from the others in a way that the relationship between
+% the temporal features and the parameter of interest is given through a mathematical
+% model and therefore the most important part when developing the device for continuous
+% blood pressure is the model that relates the parameters and the pressure. Therefore,
+% we will focus more on modeling and less on instrumentation in this chapter.
+% In addition, we will discuss arterial stiffness and oscillometric blood pressure
+% devices based on time differences between signals.
+%
+%
+%
+% Temporal relationship between physiological signals
+%
+% <a href="Chapter8/PlottingSignals/reading_signals.html">PTT and PAT surrogates</a>,
+% Fig. 9.2, 9.3
+%
+%
+%
+% Modelling the relationship between PTT and blood pressure
+%
+% <a href="Chapter8/PlottingSignals/Moens.html">Moens-Korteweg equation,
+% >Example 8.1
+%
+%
+%
+% Cuffless blood pressure monitoring
+%
+% <a href="Chapter8/PATUncertainty/PAT_uncertainty_propagation.html">Model-based
+% blood pressure estimation</a>, Fig. 8.6
+%
+%
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 9 *Continuous monitoring of breathing*
+% In this chapter, we describe operation of devices for acquiring breathing
+% signal and then estimating breathing rate. We introduce devices that can extract
+% breathing signal from cardiac signals such as ECG and PPG as well as devices
+% that obtain breathing signal based on movements of the chest wall of by measuring
+% temperature or pressure changes during inhalation and exhalation. In addition,
+% we show some developments of wearable devices for tidal volume and airflow measurements
+% as well as systems for classifying breathing patterns.
+%
+% What is measured?
+%
+% <a href="Chapter9/Plotting_Pneuma_and_Shafiq/PlottingSignals.html">Volume
+% and flow</a>, Fig. 9.1, 9.2, 9.15
+%
+%
+%
+% Features of the signal and the noise
+%
+% <a href="Chapter9/Signal Quality/SQI_notebook.html">Signal quality</a>,
+% Fig. 9.3, 9.4
+%
+%
+%
+% Breathing rate estimation
+%
+% <a href="Chapter9/BrRateEst/Br_rate.html">Breathing rate estimation algorithms</a>,
+% Fig. 9.5
+%
+% <a href="Chapter9/RespRatefromECG/BreathingRateFromECG.html">Extracting
+% breathing rate from cardiac signals</a>, Fig. 9.6, 9.7
+%
+% Chest wall movement
+%
+% <a href="Chapter9/Accelerometer/accel_breathing.m') Accelerometers</a>,
+% Fig. 9.9
+%
+% <a href="Chapter9/Bioimpedance/Bioimpedance1.html">Impedance changes</a>,
+% Fig. 9.12, 9.13
+%
+%
+%
+%
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 10 Wearable devices
+% Wearable devices are becoming pervasive. They can sense vital signs for hours
+% and days. They come in different shapes and forms and can measure several quantities
+% of interest and estimate multiple indices. Some issues related to the design
+% of wearable devices are discussed in this chapter, such as power consumption.
+% We showed several examples of how power consumption can be estimated. We also
+% introduce different classifications of wearable devices. Sensors and sensing
+% modalities currently used in wearable devices were mainly covered in previous
+% chapters. In this chapter, we introduce three biomedical signals: seismocardiogram,
+% arterial tonometry signal, and phonocardiogram. Examples of commercial and research-based
+% wearable devices are shown at the end of the chapter.
+%
+% Sensors and sensing modality
+%
+% <a href="Chapter10/ReadSCG/reading_signals.html">Seismocardiogram</a>, Fig.
+% 10.3
+%
+% <a href="Chapter10/PCG/PCG.html">Phonocardiogram</a>, Fig. 10.4
+%
+% Designing for low-power
+%
+% <a href="Chapter10/PowerEstimation/evaluate_power.html">Modeling power
+% consumption of the overall system</a>, Fig. 10.9-10.11
+%
+%
+%
+% *REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH*
+%% Chapter 11 Conclusion and research directions: beyond wearable devices
+% The goal of this chapter is to review topics covered in the book, point out
+% new directions and challenges, and present alternative approaches to continuous
+% monitoring of patients. We discuss approaches where the patient is not required
+% to wear any devices. Instead, the sensors are integrated into the objects that
+% patients use, such as a chair or a bed. In addition, we discuss long-range contactless
+% monitoring where sensors, such as radars and cameras,  are integrated into the
+% environment where patients live.
+%
+% Beyond wearables: contactless monitoring
+%
+% <a href="Chapter11/Cameras/read_camera_signals.html">Cameras</a>, Fig. 11.4
+%
+% <a href="Chapter11/Radar/reading_radar_data.html">Radars</a>, Fig. 11.6
+%
+%
+##### SOURCE END #####
+--></body></html>
