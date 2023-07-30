@@ -7,27 +7,27 @@ Expected publication date: 2023 <br>
 
 
 ### Description:
-PERVASIVE CARDIAC AND RESPIRATORY MONITORING DEVICES is intended for senior undergraduate and graduate students in electrical and biomedical engineering as well as industry professionals. It is intended to become a textbook for courses related to wearable devices and biomedical instrumentation. The book covers today’s pervasive cardiovascular and respiratory monitoring devices used outside of the hospital as well as it addresses emerging technologies such as non-invasive cuffless monitoring of blood pressure, estimation of arterial stiffness and so on.
-Students and researchers reading this book will be provided jump start in learning about the technologies for cardiac and respiratory monitoring or in continuing research related to these technologies. They will be able to rely on developed Matlab models, worked out examples on how to use models and perform sensitivity analysis as well as pointers to research directions. We hope that the book will allow for training more researchers and developers and for accelerating R&D in this exciting field.
+Pervasive Cardiac and Respiratory Monitoring Devices: Model-Based Design is the first book to combine biomedical instrumentation and model-based design. As the scope is limited to cardiac and respiratory devices only, this book offers more depth of information on these devices; focusing in on signals used for home monitoring and offering additional analysis of these devices. The author offers an insight into new industry and research trends, including advances in contactless monitoring of breathing and heart rate. Each chapter presents a section on current trends. As instrumentation as a field is becoming increasingly smart, basic signal processing is also discussed. Real case-studies for each modelling approach are used, primarily covering blood pressure, ECG and radar-based devices.
+
+This book is ideal for teaching and supporting learning as it is written in an accessible style and a solutions manual for the problem sets is provided. It will be useful to 4th year undergraduate students, graduate/masters/PhD students, early career researchers and professionals working on an interdisciplinary project; as it introduces the field and provides real world applications. For engineers this book solves the problem of how to assess and calibrate a medical device to ensure the data collected is trustworthy. For students, this book allows for trying concepts and circuits via simulations and learning modeling techniques. Students will learn concepts from this book and be ready to design bioinstrumentations devices based on specifications/requirements.
+
 
 
 
 ### Table of Content:
 #### Part I: Introduction to Modeling, Transducers and Electronics
-1.	[Overview of Biomedical Instrumentation and Devices, Intro to modeling.](https://github.com/Health-Devices/CARDIAC-RESPIRATORY-MONITORING/tree/master/Chapter%201)
-2.	Concepts in Performance Evaluation and Uncertainty Analysis
-3.	Transducers
-4.	Electronics
-5.	Modeling and Simulation of Biomedical Systems
+Chapter 1 - Concepts in performance evaluation and uncertainty analysis \
+Chapter 2 - Transducers \
+Chapter 3 - Electronics \
+Chapter 4 - Modeling and simulation of biomedical systems
 #### Part II: Cardiovascular and Respiratory Monitoring Devices
-6.	Devices based on Oscillometric Signal: Blood Pressure
-7.	Devices based on Photoplethysmogram: PPG and Pulse Oximetry
-8.	Devices based on the ECG Signal
-9.	Devices based on the Time Difference between Signals: Continuous Blood Pressure Measurement
-10.	Continuous Monitoring of Breathing
-11.	Wearable devices
-12.	Conclusion and Research Directions: Beyond Wearable Devices
-
+Chapter 5 - Devices based on oscillometric signal: blood pressure \
+Chapter 6 - Devices based on photoplethysmogram and pulse oximetry \
+Chapter 7 - Devices based on the ECG signal \
+Chapter 8 - Devices based on the time difference between signals: continuous blood pressure measurement \
+Chapter 9 - Continuous monitoring of breathing \
+Chapter 10 - Wearable devices \
+Chapter 11 - Conclusion and research directions: beyond wearable devices 
 
 
 ### Links

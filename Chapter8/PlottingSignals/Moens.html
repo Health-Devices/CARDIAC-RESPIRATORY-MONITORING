@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2020b"><title>Piezoelectric Sensor </title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: normal; text-align: left;  }
+.S1 { margin-bottom: 20px; padding-bottom: 4px;  }
+.S2 { margin: 0px; padding: 10px 0px 10px 5px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: bold; text-align: start;  }
+.S3 { margin: -1px 0px 0px; padding: 10px 0px 10px 7px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: start;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: normal; text-align: left;  }
+.S5 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: bold; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }</style></head><body><div class = rtcContent><h1  class = 'S0' id = 'T_420E5628' ><span>Piezoelectric Sensor </span></h1><div  class = 'S1'><div  class = 'S2'><span style=' font-weight: bold;'>Table of Contents</span></div><div  class = 'S3'><a href = "#H_9FD99E56"><span>Moens-Korteweg Equation</span></a></div></div><div  class = 'S4'><span></span></div><div  class = 'S4'><span>Copyright (C) 2022 Miodrag Bolic</span></div><div  class = 'S4'><span>  This program is free software: you can redistribute it and/or modify   it under the terms of the GNU General Public License as published by  the Free Software Foundation, either version 3 of the License, or  (at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details &lt;https://www.gnu.org/licenses/&gt;. </span></div><div  class = 'S4'><span>This code was developed by Miodrag Bolic for the book PERVASIVE CARDIAC AND RESPIRATORY MONITORING DEVICES</span></div><h2  class = 'S5' id = 'H_9FD99E56' ><span>Moens-Korteweg Equation</span></h2><div  class = 'S4'><span>Compute the compliance of the carotid artery for two groups reported by [Lin99]: </span></div><div  class = 'S4'><span>                </span><span>Normal subjects: h=1.22 mm and E=2.34</span><span>⋅10^5</span><span>  </span><span>N/m^2</span></div><div  class = 'S4'><span>                </span><span>Patients with coronary (and carotid) artery disease (CAD) have increased wall thickness and Young modulus of elasticity: h=1.98 mm and E=4.18⋅10^5</span><span>  </span><span>N/m^2</span></div><div  class = 'S4'><span>Estimate the compliance for both groups as well as the pulse wave velocity. Assume that r=4 mm and that μ=0.45.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>r = 4e-3;</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>h = [1.9e-3, 1.22e-3];</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>E = [4.18e5, 2.34e5];</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>rho = 1.05e3;</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>mu = 0.45;</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span style="color: rgb(14, 0, 255);">for </span><span>i=1:length(E)</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>    PWV = sqrt(h(i)*E(i)/(2*rho*r))</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>    PWV_m = sqrt(h(i)*E(i)/(2*rho*r*(1-mu*mu)))</span></span></div></div><div class="inlineWrapper"><div  class = 'S7'><span style="white-space: pre;"><span>    C=2*pi*r^3/(h(i)*E(i))</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span style="color: rgb(14, 0, 255);">end</span></span></div><div  class = 'S9'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>PWV = 9.7236</div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>PWV_m = 10.8883</div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>C = 5.0633e-10</div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>PWV = 5.8297</div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>PWV_m = 6.5280</div><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>C = 1.4086e-09</div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Piezoelectric Sensor 
+%% 
+% 
+%% 
+% Copyright (C) 2022 Miodrag Bolic
+% 
+% This program is free software: you can redistribute it and/or modify   it 
+% under the terms of the GNU General Public License as published by  the Free 
+% Software Foundation, either version 3 of the License, or  (at your option) any 
+% later version.  This program is distributed in the hope that it will be useful, 
+% but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+% or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for 
+% more details <https://www.gnu.org/licenses/>. 
+% 
+% This code was developed by Miodrag Bolic for the book PERVASIVE CARDIAC AND 
+% RESPIRATORY MONITORING DEVICES
+%% Moens-Korteweg Equation
+% Compute the compliance of the carotid artery for two groups reported by [Lin99]: 
+% 
+% Normal subjects: h=1.22 mm and E=2.34⋅10^5  N/m^2
+% 
+% Patients with coronary (and carotid) artery disease (CAD) have increased wall 
+% thickness and Young modulus of elasticity: h=1.98 mm and E=4.18⋅10^5  N/m^2
+% 
+% Estimate the compliance for both groups as well as the pulse wave velocity. 
+% Assume that r=4 mm and that μ=0.45.
+
+r = 4e-3;
+h = [1.9e-3, 1.22e-3];
+E = [4.18e5, 2.34e5];
+rho = 1.05e3;
+mu = 0.45;
+for i=1:length(E)
+    PWV = sqrt(h(i)*E(i)/(2*rho*r))
+    PWV_m = sqrt(h(i)*E(i)/(2*rho*r*(1-mu*mu)))
+    C=2*pi*r^3/(h(i)*E(i))
+end
+##### SOURCE END #####
+--></body></html>

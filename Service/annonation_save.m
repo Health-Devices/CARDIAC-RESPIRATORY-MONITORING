@@ -1,0 +1,16 @@
+function annonation_save(str, filename, save_flag)
+
+% Annotate - create a textbox on a bottom right of a figure
+if save_flag==1
+annotation('textbox',...
+    [0.0273157894736842 0.026634382566586 0.0639122807017544 0.0435835351089588],...
+    'String',str,...
+    'FontSize',12,...
+    'FitBoxToText','off',...
+    'EdgeColor',[1 1 1]);
+% Save
+    ax = gca;
+    exportgraphics(ax,filename, 'Resolution',600)
+end
+end
+
