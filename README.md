@@ -1,8 +1,9 @@
-## PERVASIVE CARDIAC AND RESPIRATORY MONITORING DEVICES
-(**New Book**) <br>
-Author: Miodrag Bolic, University of Ottawa, Ottawa, Canada<br> www.site.uottawa.ca/~mbolic <br>
+# Matlab Nodebooks for the book:
+## PERVASIVE CARDIOVASCULAR AND RESPIRATORY MONITORING DEVICES: Model-Based Design
+
+Author: Miodrag Bolic, University of Ottawa, Ottawa, Canada<br> www.eecs.uottawa.ca/~mbolic <br>
 Publisher: Elsevier <br>
-Expected publication date: 2023 <br>
+Publication date: June 2023 <br>
 
 
 
@@ -15,6 +16,7 @@ This book is ideal for teaching and supporting learning as it is written in an a
 
 
 ### Table of Content:
+Overview of biomedical instrumentation and devices
 #### Part I: Introduction to Modeling, Transducers and Electronics
 Chapter 1 - Concepts in performance evaluation and uncertainty analysis \
 Chapter 2 - Transducers \
@@ -27,14 +29,14 @@ Chapter 7 - Devices based on the ECG signal \
 Chapter 8 - Devices based on the time difference between signals: continuous blood pressure measurement \
 Chapter 9 - Continuous monitoring of breathing \
 Chapter 10 - Wearable devices \
-Chapter 11 - Conclusion and research directions: beyond wearable devices 
+Chapter 11 - Conclusion and research directions: beyond wearable devices
 
 
 ### Links
 
 * [Elsevier](https://www.elsevier.ca/ca/)
-
+* [Science Direct](https://www.sciencedirect.com/book/9780128209479/pervasive-cardiovascular-and-respiratory-monitoring-devices)
 
 ### Support or Contact
 
-[Miodrag Bolic email ](mailto:mbolic@site.uottawa.ca)
+[Miodrag Bolic email ](mailto:mbolic@eecs.uottawa.ca)
